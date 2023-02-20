@@ -1,4 +1,4 @@
-from py-rest.main import bp
+from app.main import bp
 
 
 @bp.route('/')

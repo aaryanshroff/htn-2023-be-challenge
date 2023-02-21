@@ -1,9 +1,9 @@
 from flask import Flask
+
+from app.extensions import cache, db
 from app.logger import configure_logger
 from app.utils import initialize_db_with_json_data
-
 from config import Config
-from app.extensions import db
 
 
 def create_app(config_class=Config):
@@ -13,13 +13,18 @@ def create_app(config_class=Config):
     configure_logger(app)
 
     # Initialize Flask extensions here
+
+    # SQLAlchemy
     db.init_app(app)
     with app.app_context():
         initialize_db_with_json_data()
 
+    # Flask-Caching
+    cache.init_app(app)
+
     # Register blueprints here
-    from app.blueprints.users import bp as users_bp
     from app.blueprints.skills import bp as skills_bp
+    from app.blueprints.users import bp as users_bp
     app.register_blueprint(users_bp, url_prefix='/users')
     app.register_blueprint(skills_bp, url_prefix='/skills')
 

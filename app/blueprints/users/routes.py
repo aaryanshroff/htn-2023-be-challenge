@@ -7,6 +7,7 @@ from app.models.user import User
 
 @bp.get('/')
 def get_users():
+    '''Get all users'''
     users = User.query.all()
     user_list = [user.to_dict() for user in users]
 
@@ -15,6 +16,7 @@ def get_users():
 
 @bp.get('/<int:id>')
 def get_user(id):
+    '''Get a single user by id'''
     user = User.query.get_or_404(id)
 
     return jsonify(user.to_dict())
@@ -22,6 +24,7 @@ def get_user(id):
 
 @bp.put('/<int:id>')
 def update_user(id):
+    '''Update a user's name, company, phone, and skills'''
     user = User.query.get_or_404(id)
     data = request.get_json()
 

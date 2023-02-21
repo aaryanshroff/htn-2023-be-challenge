@@ -166,4 +166,4 @@ cython_debug/
 .DS_Store
 
 # SQLite DB files
-*.db
+hackers.db

@@ -1,6 +1,6 @@
 from app.extensions import db
-from app.types import User as UserType  # This is a type hint, not a class
 from app.models.skill import Skill  # This is a class
+from app.types import User as UserType  # This is a type hint, not a class
 
 
 class User(db.Model):

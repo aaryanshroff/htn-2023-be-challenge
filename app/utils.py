@@ -1,13 +1,15 @@
-from sqlalchemy.exc import IntegrityError
+import os
+
+import requests
 from flask import current_app
+from requests import HTTPError
+from sqlalchemy.exc import IntegrityError
+
 from app import logger
 from app.extensions import db
-from app.models.user import User as UserModel  # Model
 from app.models.skill import Skill as SkillModel  # Model
+from app.models.user import User as UserModel  # Model
 from app.types import User  # Type hinting
-import requests
-from requests import HTTPError
-import os
 
 
 def initialize_db_with_json_data():

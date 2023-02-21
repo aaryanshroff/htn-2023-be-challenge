@@ -1,8 +1,10 @@
 from collections import defaultdict
+
 from flask import current_app, jsonify, request
+
 from app.blueprints.skills import bp
-from app.models.skill import Skill
 from app.extensions import cache
+from app.models.skill import Skill
 
 CacheKey = str
 

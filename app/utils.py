@@ -1,4 +1,5 @@
 import os
+from typing import List
 
 import requests
 from flask import current_app
@@ -28,7 +29,7 @@ def initialize_db_with_json_data():
     _add_users_to_db(users)
 
 
-def _add_users_to_db(users: list[User]) -> None:
+def _add_users_to_db(users: List[User]) -> None:
     '''
     Add users to database
     '''
@@ -53,7 +54,7 @@ def _add_users_to_db(users: list[User]) -> None:
             db.session.commit()
 
 
-def _get_users() -> list[User]:
+def _get_users() -> List[User]:
     '''
     Get data from API and return as JSON
     Raises HTTPError if status code is not 200

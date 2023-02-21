@@ -1,4 +1,4 @@
-from typing import TypedDict
+from typing import List, TypedDict
 
 
 class Skill(TypedDict):
@@ -13,4 +13,4 @@ class User(TypedDict):
     company: str
     email: str
     phone: str
-    skills: list[Skill]
+    skills: List[Skill]

@@ -1,6 +1,6 @@
 from flask import jsonify, render_template, request
 from app.models.skill import Skill
-from app.users import bp
+from app.blueprints.users import bp
 from app.extensions import db
 from app.models.user import User
 

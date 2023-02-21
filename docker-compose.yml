@@ -9,7 +9,16 @@ services:
     environment:
       - LC_ALL=C.UTF-8
       - LANG=C.UTF-8
-      - FLASK_APP=main.py
+      - FLASK_APP=app.py
+      - API_URL=https://gist.githubusercontent.com/faizaanmadhani/6bf87ac6d8975b2bd45aba9fd96515ca/raw/795f99b519d6e2c33bb2b89c0707be7f06cff95d/HTN_2023_BE_Challenge_Data.json
     ports:
       - 3000:3000
-    command: ["python3", "-m", "flask", "run", "--host=0.0.0.0", "--port=3000"]
+    command:
+      [
+        "python3",
+        "-m",
+        "flask",
+        "run",
+        "--host=0.0.0.0",
+        "--port=3000"
+      ]

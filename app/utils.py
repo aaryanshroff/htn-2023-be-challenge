@@ -23,7 +23,7 @@ def initialize_db_with_json_data():
     try:
         users = _get_users()
     except HTTPError as http_err:
-        print(f'HTTP error occurred: {http_err}')
+        logger.exception(f'HTTP error occurred: {http_err}')
         exit(1)
 
     _add_users_to_db(users)

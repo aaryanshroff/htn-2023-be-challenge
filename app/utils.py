@@ -12,6 +12,7 @@ from app.models.skill import Skill as SkillModel  # Model
 from app.models.user import User as UserModel  # Model
 from app.models.event import Event as EventModel  # Model
 from app.types import Event, User  # Type hinting
+from config import Config
 
 
 def initialize_db_with_json_data():
@@ -69,7 +70,9 @@ def _get_users() -> List[User]:
     Get data from API and return as JSON
     Raises HTTPError if status code is not 200
     '''
-    response = requests.get(os.environ.get('API_URL'))
+    if not Config.API_URL:
+        raise ValueError('API_URL not set')
+    response = requests.get(Config.API_URL)
 
     response.raise_for_status()
 

@@ -1,6 +1,6 @@
 ## Instructions
 ### Docker
-```
+```zsh
 docker compose up
 ```
 ### venv
@@ -43,6 +43,8 @@ to the given URL: `PUT localhost:3000/users/1` updates their phone number to +1 
 `GET localhost:3000/skills` returns skills and corresponding number of users (frequency).
 
 `GET localhost:3000/skills/?min_frequency=20&max_frequency=30` returns skills and corresponding frequencies for skills with at least 20 users and at most 30 users.
+
+**Since users do not gain/lose skills very often, the data returned by the all skills endpoint is cached to avoid querying DB each time.**
 
 ### Scan Event Endpoint
 Submitting the following JSON:

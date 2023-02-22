@@ -6,7 +6,7 @@ from app.models.event import Event
 from app.models.user import User
 
 
-@bp.post('/<int:id>')
+@bp.put('/<int:id>')
 def scan_event(id):
     '''Scan a user into an event'''
     data = request.get_json()

@@ -7,6 +7,10 @@ class Skill(TypedDict):
     rating: int
 
 
+class Event(TypedDict):
+    id: int
+
+
 class User(TypedDict):
     id: int
     name: str
@@ -14,3 +18,4 @@ class User(TypedDict):
     email: str
     phone: str
     skills: List[Skill]
+    event: List[Event]

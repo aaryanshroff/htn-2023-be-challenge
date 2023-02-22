@@ -23,10 +23,12 @@ def create_app(config_class=Config):
     cache.init_app(app)
 
     # Register blueprints here
+    from app.blueprints.events import bp as events_bp
     from app.blueprints.skills import bp as skills_bp
     from app.blueprints.users import bp as users_bp
     app.register_blueprint(users_bp, url_prefix='/users')
     app.register_blueprint(skills_bp, url_prefix='/skills')
+    app.register_blueprint(events_bp, url_prefix='/events')
 
     @app.route('/test/')
     def test_page():

@@ -10,7 +10,8 @@ from app import logger
 from app.extensions import db
 from app.models.skill import Skill as SkillModel  # Model
 from app.models.user import User as UserModel  # Model
-from app.types import User  # Type hinting
+from app.models.event import Event as EventModel  # Model
+from app.types import Event, User  # Type hinting
 
 
 def initialize_db_with_json_data():
@@ -27,6 +28,8 @@ def initialize_db_with_json_data():
         exit(1)
 
     _add_users_to_db(users)
+
+    _add_events_to_db(n=10)
 
 
 def _add_users_to_db(users: List[User]) -> None:
@@ -52,6 +55,13 @@ def _add_users_to_db(users: List[User]) -> None:
                 name=skill['skill'], rating=skill['rating'], user_id=user_obj.id)
             db.session.add(skill_obj)
             db.session.commit()
+
+
+def _add_events_to_db(n: int) -> None:
+    for _ in range(n):
+        event_obj = EventModel()
+        db.session.add(event_obj)
+        db.session.commit()
 
 
 def _get_users() -> List[User]:

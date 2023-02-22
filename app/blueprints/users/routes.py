@@ -43,6 +43,10 @@ def update_user(id):
             user.skills.append(
                 Skill(name=skill['skill'], rating=skill['rating']))
 
+    # Update events
+    for event in data.get('events', []):
+        user.events.append(event)
+
     db.session.commit()
 
     return jsonify(user.to_dict())

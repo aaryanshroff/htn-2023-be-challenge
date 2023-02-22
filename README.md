@@ -8,7 +8,7 @@ docker compose up
 Prerequisites
 ```zsh
 export FLASK_APP=app.py
-export API_URL=<json_data_source>
+export API_URL=https://gist.githubusercontent.com/faizaanmadhani/6bf87ac6d8975b2bd45aba9fd96515ca/raw/795f99b519d6e2c33bb2b89c0707be7f06cff95d/HTN_2023_BE_Challenge_Data.json
 ```
 Run server
 ```zsh

@@ -1,15 +1,14 @@
-# Instructions
-## Docker
+## Instructions
+### Docker
 ```
 docker compose up
 ```
-## venv
-### Prerequisites
+### venv
+Prerequisites
 ```zsh
 export FLASK_APP=app.py
 export API_URL=<json_data_source>
 ```
-
 Run server
 ```zsh
 python3 -m venv .venv
@@ -17,21 +16,21 @@ source .venv/bin/activate
 flask run --port=3000
 ```
 
-# Frameworks and Languages
+## Frameworks and Languages
 - Flask (REST API)
 - Flask-Caching
 - SQLite (Database)
 - Flask-SQLAlchemy (ORM)
 - Docker
 
-# API
-## All Users Endpoint
+## API
+### All Users Endpoint
 `GET localhost:3000/users/`
 
-## User Information Endpoint
+### User Information Endpoint
 `GET localhost:3000/users/1`
 
-## Updating User Data Endpoint
+### Updating User Data Endpoint
 Submitting the following JSON:
 ```javascript
   {
@@ -40,12 +39,12 @@ Submitting the following JSON:
 ```
 to the given URL: `PUT localhost:3000/users/1` updates their phone number to +1 (555) 123 4567 and return the full user data with the new phone number. If a user has new skills, these skills are added to the database. Any existing skills have their ratings updated.
 
-## All Skills Endpoint
+### All Skills Endpoint
 `GET localhost:3000/skills` returns skills and corresponding number of users (frequency).
 
 `GET localhost:3000/skills/?min_frequency=20&max_frequency=30` returns skills and corresponding frequencies for skills with at least 20 users and at most 30 users.
 
-## Scan Event Endpoint
+### Scan Event Endpoint
 Submitting the following JSON:
 ```javascript
     {

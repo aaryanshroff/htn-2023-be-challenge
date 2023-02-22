@@ -11,6 +11,9 @@ event_user = db.Table('event_user',
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
+    def __repr__(self):
+        return f'<Event {self.id}>'
+
     def to_dict(self):
         return {
             'id': self.id,
